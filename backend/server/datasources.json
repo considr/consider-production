@@ -1,0 +1,15 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "considr_db": {
+    "host": "ds157829.mlab.com",
+    "port": 57829,
+    "database": "heroku_bgn473wn",
+    "password": "sharedtest1",
+    "name": "considr_db",
+    "user": "shareduser1",
+    "connector": "mongodb"
+  }
+}

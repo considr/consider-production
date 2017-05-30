@@ -1,0 +1,50 @@
+1 .  Webservice to autocomplete user entry:
+
+	Find constituency_list.json in github repo:
+	
+		https://github.com/considr/considr-backend/blob/master/backend/docs/input_docs/constituency_list.json
+
+	Use this json as a static dataset for the autocomplete search field.
+		
+2.	List Campaigns by Constituency Code (recieves a consistuency code - reponds with campaign list with detail for each campign wrapped in the object):
+
+	Example:
+
+		http://localhost:3000/api/Constituencies/listOfCampaignsFromConstituencyCode?constituency_code=019
+
+
+3.   Webservice to get related representatives (recieves a campaign id - responds with representative list) 
+	(Only valid for predeterminately chosen parliamentarians):
+	
+	Make an API call to get the list of Parliamentarians that are listed this Campaign,
+	by giving the id:
+	
+
+		http://www.considr.me/api/Campaigns/id/parliamentarian_list
+
+	Example:
+
+		http://www.considr.me/api/Campaigns/5916fc06bacace199cefeb00/parliamentarian_list
+		
+4.   Webservice to get related representatives (recieves a campaign id - responds with representative list) 
+	(For non-predeterminately chosen parliamentarians):
+	
+	(I gotta modify the Constituency model to include parliamentarian_list, and fill it for all constituencies)
+	
+	First, gotta make an API call to get the foreign key of the Constituency:
+
+		http://www.considr.me/api/Constituencies?filter={"where":{"constituency_code":code}}
+		
+	Where "code" is the constituency_code from the selected constituency in the autocomplete search field.
+
+	From this object, take the "id" of the Constituency.
+	
+	Make an API call to get the list of Parliamentarians that are listed in this Constituency,
+	by giving the id:
+	
+
+		http://www.considr.me/api/Constituencies/id/parliamentarian_list
+
+	Example:
+
+		http://www.considr.me/api/Campaigns/5916fc06bacace199cefeb00/parliamentarian_list
