@@ -1,0 +1,27 @@
+<!doctype html>  
+<html lang="en" ng-app="consider-me">  
+<head>  
+  <meta charset="UTF-8">
+  <title>::considrMe::</title>
+  
+  <script src="js/jquery-3.2.1.min.js"></script>
+  
+</head>  
+<body> 
+    <div>HAHAHAHAHAHAHAHA MANIAC LAUGHTER GALORE</div>
+	
+	<script type='text/javascript'>
+		$(document).ready(function() {
+
+			console.log("JQUERY TEST");
+			
+			$.get( "http://www.considr.me/api/Campaigns?access_token=55", function( data ) {
+			  
+			  alert( "Campaigns loaded: " + data.length );
+			});				
+			
+
+		});
+	</script>
+</body>  
+</html>  
