@@ -4,11 +4,11 @@ module.exports = function(Campaign) {
 		
 	var app = require('../../server/server');
 	
-	Campaign.linkConstituenciesByNameSegment = function(id,name_segment,cb) {
+	Campaign.linkConstituenciesByNameSegment = function(campaign_id,name_segment,cb) {
 		
 		var Constituency = app.models.Constituency;
 		
-		Campaign.findOne({where: {id: id}}, function(err, campaign) {
+		Campaign.findOne({where: {id: campaign_id}}, function(err, campaign) {
 						
 			if(campaign != null)
 			{					
@@ -73,10 +73,10 @@ module.exports = function(Campaign) {
     };
     Campaign.remoteMethod('linkConstituenciesByNameSegment', {
 		accepts: [
-				 {arg: 'id', type: 'string', required: true},
+				 {arg: 'campaign_id', type: 'string', required: true},
 				 {arg: 'name_segment', type: 'string', required: true}
 				],
-        http: { path: '/linkConstituenciesByNameSegment', verb: 'get' },
+        http: { path: '/linkConstituenciesByNameSegment', verb: 'post' },
         returns: { arg: 'result', type: 'object' },
 		description: "Links constituencies that include name_segment on constituency_name to Campaign",
 		notes: "If 'Germany' is given as a name_segment, it'll make the campaign federal and add all constituencies to it."
