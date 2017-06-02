@@ -2,6 +2,22 @@
 
 module.exports = function(Campaign) {
 		
+	Campaign.disableRemoteMethodByName('create');
+	Campaign.disableRemoteMethodByName('replaceOrCreate');
+	Campaign.disableRemoteMethodByName('patchOrCreate');
+	Campaign.disableRemoteMethodByName('exists');
+	Campaign.disableRemoteMethodByName('findById');
+	Campaign.disableRemoteMethodByName('find');
+	Campaign.disableRemoteMethodByName('findOne');
+	Campaign.disableRemoteMethodByName('deleteById');
+	Campaign.disableRemoteMethodByName('count');
+	Campaign.disableRemoteMethodByName('replaceById');
+	Campaign.disableRemoteMethodByName('prototype.patchAttributes');
+	Campaign.disableRemoteMethodByName('createChangeStream');
+	Campaign.disableRemoteMethodByName('updateAll');
+	
+	Campaign.disableRemoteMethodByName('prototype.__create__tags');
+		
 	var app = require('../../server/server');
 	
 	Campaign.linkConstituenciesByNameSegment = function(campaign_id,name_segment,cb) {
