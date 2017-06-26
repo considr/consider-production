@@ -1,0 +1,34 @@
+<section id="representative-profile">
+   <div id="profile-wrap" class="main-section">
+	   	<img ng-src="{{availableParliamentarians[variables.currentParliamentariansIndex].photo_main_url}}" />
+		  
+
+	   	<h2 class="representative-name">{{availableParliamentarians[variables.currentParliamentariansIndex].full_name}}</h3>
+	   	<h4 class="representative-number">Tel: {{availableParliamentarians[variables.currentParliamentariansIndex].office_phonenumber_main}}</h3>
+	    <hr />
+		<h3 class="feedback">Give us feedback</h3>
+	   	<button class="representative-call-btn positive">I called {{availableParliamentarians[variables.currentParliamentariansIndex].full_name}}</button>
+	   	<button class="representative-call-btn negative" ng-click="nextParliamentarian()">{{availableParliamentarians[variables.currentParliamentariansIndex].full_name}} was not available</button>
+
+   </div>
+   <div id="call-guide" class="main-section">
+   	     <h2>What to Say</h2>
+   	     <p>Hi, my name is <span class="blue-span">[NAME]</span> and I'm a constituent from <span class="blue-span">[CITY, ZIP]</span>.
+
+			I'm calling to express my support for the <span class="blue-span">[HOUSE: Rep. Pascrell's; SENATE: Sen. Bob Casey's]</span> Resolution of Inquiry calling for the release of Trump's tax returns. The recent Tax Marches across the country proved the American public wants to know the financial ties the President has to businesses and foreign entities.
+
+			<span class="blue-span">[IF COMMITTEE, ADD: I urge the committee to put aside partisan politics and bring the resolution up for another hearing and vote. Please pass my message along to all members of the committee.]</span>
+
+			Thank you for your time and attention.
+			
+		</p>
+		<br>
+		<p>		
+			<span class="pink-span">[IF LEAVING A VOICEMAIL: please leave your full street address to ensure your call is tallied]</span>
+		</p>
+		
+		
+   </div>
+   
+    
+</section>

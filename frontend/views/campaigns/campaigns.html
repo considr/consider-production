@@ -1,0 +1,38 @@
+<section id="campaigns">
+    <div class="main-section">
+        <h1>Trending Campaigns</h1>
+        <div class="selected-city-search-campaigns-wrap">
+            <div class="selected-city">
+                <span class="icon icon-location"></span>
+                <span>{{currentCountry.name}} - Germany</a>    
+                <span>
+                    (<a class="change-btn" ng-click="showSelection()">change</a>)
+                </span>        
+                <select class="reigon-selection" 
+                ng-if="isSelectionShown"
+                ng-model="data.model"
+                ng-change="updateReigon(data.model)"
+                ng-options="country.constituency_name for country in countries"
+                >   
+                    <option value="">{{currentCountry.name}}</option>            
+                </select>
+            </div>
+            <!--<div class="search-campaigns">
+                <input type="text" placeholder="Search campaigns" />
+            </div>-->
+        </div>
+        <div class="campaigns-list">
+            <campaign ng-repeat="campaign in campaigns" campaign="campaign"></campaign>
+        </div>
+
+        <loading-indicator loader="req"></loading-indicator>
+
+        <div class="no-more" ng-if="noMore">No More Campaigns</div>
+
+        <div class="load-more-wrap" ng-if="initReady && !noMore">
+            <div class="load-more">
+                <a ng-click="getCampaigns()">Load More</a>
+            </div>
+        </div>
+    </div>
+</section>
