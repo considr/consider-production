@@ -104,7 +104,7 @@ module.exports = function(Call) {
 							  call.to_parliamentarian.add(parliamentarian.id); 
 							  call.participant_constituency.add(constituency.id); 
 								
-							  cb(null, call);
+							  cb(null, "Success");
 						  }
 
 						});
@@ -126,7 +126,7 @@ module.exports = function(Call) {
 				 {arg: 'call_result', type: 'string', required: true},
 				 {arg: 'call_starts', type: 'date', required: true}
 				],		  
-          returns: {arg: 'result', type: 'object'},
+          returns: {arg: 'result', type: 'string'},
 		  http: {path: '/addCallToCampaignWithResult', verb: 'post'},
 		  description: "On giving Campaign feedback, it creates a Call instance to record the information about the outcome of the Call"
     });
