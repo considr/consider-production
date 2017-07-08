@@ -1,11 +1,25 @@
 angular.module('consider-me')
        .factory('campaignDetailsData', function (xhr, $q) {
             return {
-                getCampaignDetails: function (countryId) {          
+                getCampaignParliamentarians: function (campaignId,locationId) {          
                     return xhr.call({
-                        url: 'api/Constituencies/listOfParliamentariansFromCampaignIdOrConstituencyCode?campaign_id='+'592199677fd05606dc6d4350'+'&constituency_code='+'003'
+                        url: 'api/Constituencies/listOfParliamentariansFromCampaignIdOrConstituencyCode?campaign_id='+campaignId+'&constituency_code='+locationId
                     });
                 },
+
+                getCampaignDetails: function (campaignId) {          
+                    return xhr.call({
+                        url: 'api/Campaigns/'+campaignId
+                    });
+                },
+
+                submitFeedBack: function (params) {
+                    return xhr.call({
+                        url: 'api/Calls/addCallToCampaignWithResult',
+                        method:'post',
+                        data:params
+                    });
+                }
             };
         });
 
