@@ -80,10 +80,10 @@ module.exports = function(Call) {
 		Campaign.findOne({where: {id: campaign_id}}, function(err, campaign) {
 			
 			Parliamentarian.findOne({where: {id: parliamentarian_id}}, function(err, parliamentarian) {
-					
+									
 				Constituency.findOne({where: {constituency_code: constituency_code}}, function(err, constituency) {
 						  
-					if(campaign != null && parliamentarian != null && constituency != null)
+					if(campaign != null && parliamentarian != null)
 					{	
 						var new_call = {
 							"call_completed": call_completed,
@@ -94,21 +94,28 @@ module.exports = function(Call) {
 				
 						Call.create(new_call, function(err, call) {
 						  
-						  if (err) {
-							  
-							  cb(null, "Couldn't create Call with data provided");
-						  }
-						  else
-						  {
-							  call.from_campaign.add(campaign.id); 
-							  call.to_parliamentarian.add(parliamentarian.id); 
-							  call.participant_constituency.add(constituency.id); 
-								
-							  cb(null, "Success");
-						  }
+							if (err) {
+								  
+								cb(null, "Couldn't create Call with data provided");
+							}
+							else
+							{
+								call.from_campaign.add(campaign.id); 
+								call.to_parliamentarian.add(parliamentarian.id); 	
+								if(constituency != null)
+								{
+									call.participant_constituency.add(constituency.id); 	
+								}						  					  							  
+									
+								cb(null, "Success");
+							}
 
 						});
-					}	  
+					}
+					else
+					{
+						cb(null, "Couldn't create Call. Lacking data");
+					}
 						  
 				});
 				
