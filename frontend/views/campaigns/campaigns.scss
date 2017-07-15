@@ -1,7 +1,10 @@
 #campaigns {
 	@include span(12);
 
-	
+	hr{
+      margin-bottom:0;
+	}
+
 	h1{
 		margin: 20px 0;
 		font-weight: bold;

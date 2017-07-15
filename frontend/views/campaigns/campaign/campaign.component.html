@@ -1,6 +1,6 @@
-<div class="campaign">
+<div class="campaign" ng-click="toggleReadMore()">
   <div class="brief">
-    <a ui-sref="campaign-details({id: $ctrl.campaign.id,location:$ctrl.campaign.campaign_code})">
+    <a ui-sref="campaign-details({id: $ctrl.campaign.id,location:$ctrl.campaign.campaign_code,name:campaignData.name})">
       {{$ctrl.campaign.title}}
     </a>
   </div>
@@ -8,17 +8,18 @@
     {{$ctrl.campaign.description}}
   </div>
   <div class="action my-crazy-animation" ng-if="isMored">
-    <a ui-sref="campaign-details({id: $ctrl.campaign.id})">
+    <a ui-sref="campaign-details({id: $ctrl.campaign.id,location:$ctrl.campaign.campaign_code,name:campaignData.name})">
       <i class="icon icon-call"></i>
       Make Call
     </a>
   </div>
   <div class="content-switch-wrap">
     <div class="content-switch">
-      <a ng-click="toggleReadMore()">
+      <a>
         <span ng-if="!isMored">Read More</span>
         <span ng-if="isMored">Close</span>
       </a>
       </span>
     </div>
+
   </div>

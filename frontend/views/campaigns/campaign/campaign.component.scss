@@ -1,13 +1,17 @@
 	.campaign {
-		margin: 20px 0;
-		padding-bottom: 20px;
-		border-bottom: 1px $light-beige solid;
 		position: relative;
+		padding: 15px;
+		box-sizing: border-box;
+		margin: 0;
+		border-bottom: 1px $light-beige solid;	
+		&:hover
+		{
+			background: $light-grey;
+		}	
 		.brief {
 			margin: 20px 0;
 		}
 		.details {
-			color: $light-beige;
 			margin: 20px 0;
 		}
 		.action {
@@ -23,10 +27,9 @@
 			}
 		}
 		.content-switch-wrap {
-			position: absolute;
-			position: absolute;
-			right: 0;
-			bottom: 15px;
+				margin: 15px;
+				display: block;
+				text-align: right;
 		}
 		.content-switch {
 			font-size: 14px;
